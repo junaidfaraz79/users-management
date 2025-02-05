@@ -1,0 +1,9 @@
+<html>
+<head>
+    <title>{{$subject}}</title>
+</head>
+<body>
+    <h1>{{$subject}}</h1>
+    <p>{{$welcome_message}}</p>
+</body>
+</html>

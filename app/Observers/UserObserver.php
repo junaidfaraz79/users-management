@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
+use App\Mail\WelcomeEmail;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class UserObserver
 {
@@ -11,7 +13,11 @@ class UserObserver
      */
     public function created(User $user): void
     {
-        //
+        $toEmail = $user->email;
+        $message = "Thank you very much for registering yourself on our website.";
+        $subject = "Welcome! ".$user->name;
+        Mail::to($toEmail)->send(new WelcomeEmail($message, $subject));
+
     }
 
     /**
